@@ -87,11 +87,12 @@ exports.irc = function(ip,port,name) {
 
 
 
-		if(parsed.command == 'PING'){this.send('PONG :' + parsed.params[0])};
+		
 		
 
 			console.log(parsed);
 			if(parsed !== null){
+				if(parsed.command == 'PING'){this.send('PONG :' + parsed.params[0])};
 				switch (parsed.command) {
 					case 'PRIVMSG':
 						var fulldata = [parsed.params[1].replace('\r',''),{raw:parsed.prefix,nick:parsed.prefix.split('!')[0]},parsed.params[0]];

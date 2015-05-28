@@ -76,7 +76,6 @@ exports.irc = function(ip,port,name) {
 		if(data.toString().indexOf(" :End of /MOTD command.") > -1 && !this.connected){
 			this.emit('connect');
 			this.connected = true;
-		}	this.send("PONG :"+ data.toString().replace("PING :", ""));
 		}
 		var noclrf = data.toString().split('\n');
 		var cdata = [];

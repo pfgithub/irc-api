@@ -1,6 +1,6 @@
 {
   "name": "irc-api",
-  "version": "0.0.21",
+  "version": "0.0.321",
   "description": "Please use node-irc",
   "main": "index.js",
   "scripts": {

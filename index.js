@@ -88,7 +88,7 @@ exports.irc = function(ip,port,name) {
 
 
 
-		if(parsed.command == 'PING'){this.send('PONG :' + parsed.params)};
+		if(parsed.command == 'PING'){this.send('PONG :' + parsed.params[0])};
 		
 
 			console.log(parsed);

@@ -76,14 +76,7 @@ exports.irc = function(ip,port,name) {
 		if(data.toString().indexOf(" :End of /MOTD command.") > -1 && !this.connected){
 			this.emit('connect');
 			this.connected = true;
-		}
-		data.toString().split('\n').forEach(function(daa){
-if(daa.toString().indexOf('PING :') > -1){
-			this.send("PONG :"+ daa.toString().replace("PING :", ""));
-		}
-}.bind(this))
-		if(data.toString().indexOf('PING :') > -1){
-			this.send("PONG :"+ data.toString().replace("PING :", ""));
+		}	this.send("PONG :"+ data.toString().replace("PING :", ""));
 		}
 		var noclrf = data.toString().split('\n');
 		var cdata = [];
@@ -92,6 +85,12 @@ if(daa.toString().indexOf('PING :') > -1){
 			cdata.push(parse(bit));
 		});
 		cdata.forEach(function(parsed){
+
+
+
+		if(parsed.command == 'PING'){this.send('PONG :' + parsed.params)};
+		
+
 			console.log(parsed);
 			if(parsed !== null){
 				switch (parsed.command) {

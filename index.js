@@ -84,9 +84,9 @@ exports.Irc = function(ip,port,name) {
   this.client.setEncoding('ascii');
   this.client.setNoDelay();
 };
-util.inherits(exports.irc, EventEmitter);
+util.inherits(exports.Irc, EventEmitter);
 
-exports.irc.prototype.send = function(data){
+exports.Irc.prototype.send = function(data){
   fulldata = data.split('\n')[0];
   if(this.client.writable){
     this.client.write(data + '\n', 'ascii', function(err){
